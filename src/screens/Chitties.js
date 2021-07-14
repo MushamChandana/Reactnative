@@ -6,7 +6,7 @@ function Chitties({navigation}) {
     useEffect(() => {
         setTimeout(() => {
           navigation.navigate('Chittidashboard')
-        }, 3000);
+        }, 5000);
     }, [])
     return (
         <ImageBackground source={require('../assets/chitty.png')}
