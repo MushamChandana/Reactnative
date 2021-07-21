@@ -12,6 +12,9 @@ function Jsxexample() {
         <View>
             <Text> hai this is {name} i am from hyd </Text>
             <Text>  hello we are {getFullName("sudha", "chandu", " siri")}</Text>
+            <Text> hai this is  hello i am from hyd </Text>
+
+
         </View>
     );
 }
