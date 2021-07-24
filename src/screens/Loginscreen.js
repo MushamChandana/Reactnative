@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default class Loginscreen extends Component {
@@ -7,7 +7,10 @@ export default class Loginscreen extends Component {
         return(
             <SafeAreaView>
             <View>
-                <Text>login screen</Text>
+               <View>
+                   <Image source={require('../assets/carrots.jpeg')}
+                   style={{width:100,height:100}}/>
+               </View>
             </View>
             </SafeAreaView>
         );
