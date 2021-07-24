@@ -17,6 +17,8 @@ import Lakh from './src/screens/Lakh';
 import FirstLakh from './src/screens/FirstLakh';
 import Chitties from './src/screens/Chitties';
 import Myemi from './src/screens/Myemi';
+import Propsstate from './src/screens/Propsstate';
+import Loginscreen from './src/screens/Loginscreen';
 
 
 
@@ -37,14 +39,21 @@ function App() {
     //<Usestate/>
     //<Dog />
     //<Cat/>
-    //<Jsxexample/>
-    // <Example2/>
-    //<Example/>
     <NavigationContainer>
 
       <Stack.Navigator>
 
 
+        <Stack.Screen name="Loginscreen" component={Loginscreen}
+          options={{ headerShown: false }} />
+        <Stack.Screen name="Propsstate" component={Propsstate}
+          options={{ headerShown: false }} />
+        <Stack.Screen name="Example" component={Example}
+          options={{ headerShown: false }} />
+        <Stack.Screen name="Jsxexample" component={Jsxexample}
+          options={{ headerShown: false }} />
+        <Stack.Screen name="Example2" component={Example2}
+          options={{ headerShown: false }} />
         <Stack.Screen name="Chitties" component={Chitties}
           options={{ headerShown: false }} />
         <Stack.Screen name="Chittidashboard" component={Chittidashboard}
