@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "485103900682",
+    "project_id": "practies-35013",
+    "storage_bucket": "practies-35013.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485103900682:android:0739eb62a7d6180af267f3",
+        "android_client_info": {
+          "package_name": "com.practies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485103900682-07o8fqqtm43rg8785enpavt3tgcte21i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.practies",
+            "certificate_hash": "f25f01a01e364b492819e5ca99147a764f371079"
+          }
+        },
+        {
+          "client_id": "485103900682-eucrhvs20jm789rdkr2ptsfdnqpv1pgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMhwL1Yua9UejaCZfdhmub1uhD8YyEP5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485103900682-eucrhvs20jm789rdkr2ptsfdnqpv1pgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
