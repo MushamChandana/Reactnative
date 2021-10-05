@@ -53,54 +53,25 @@ import All from './src/screens/Vinx/All';
 import Money from './src/screens/Vinx/Money';
 import Coins from './src/screens/Vinx/Coins';
 import SettingScreen from './src/screens/Vinx/SettingScreen';
-import Payment from './src/screens/Vinx/Payment';
-import Passbook from './src/screens/Vinx/Passbook';
-import Cash from './src/screens/Vinx/Cash';
-import Support from './src/screens/Vinx/Support';
-import Ticket from './src/screens/Vinx/Ticket';
-import Gpay from './src/screens/Vinx/Gpay';
-import Qrpay from './src/screens/Vinx/Qrpay';
-import Favorites from './src/screens/Vinx/Favorites';
-import AboutRapido from './src/screens/Vinx/AboutRapido';
-import SwitchScreen from './src/screens/Vinx/SwitchScreen';
-import Preferences from './src/screens/Vinx/Preferences';
-import Supportrapido from './src/screens/Vinx/Supportrapido';
-import SearchScreen from './src/screens/Vinx/SearchScreen';
-import Help from './src/screens/Vinx/Help';
-import Safety from './src/screens/Vinx/Safety';
-import Ride from './src/screens/Vinx/Ride';
-import Services from './src/screens/Vinx/Services';
-import Account from './src/screens/Vinx/Account';
-import Referrals from './src/screens/Vinx/Referrals';
-import Faqpayment from './src/screens/Vinx/Faqpayment';
-import Powerpass from './src/screens/Vinx/Powerpass';
-import Scroll from './src/screens/Vinx/Scroll';
+
+
 
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
-function DrawerView () {
-  return (
 
-    <Drawer.Navigator initialRouteName="About"
-    drawerContent={(props)=><Scroll {...props}/>}
-    >   
-         <Stack.Screen name="Settings" component={Settings} />
-      <Stack.Screen name="Search" component={Search} />
-    </Drawer.Navigator>
 
-  );
+function App() {
 
-}
-
+ 
+  
 
 
 
@@ -141,7 +112,7 @@ function DrawerView () {
 
         <Tab.Screen name="Home" component={Home} options={{ tabBarBadge: 4 }} />
 
-        <Tab.Screen name="Search" component={Search} />
+        <Tab.Screen name="Search" component={SideModel} />
         <Tab.Screen name="Heart" component={Heart} />
         <Tab.Screen name="Settings" component={Settings} />
 
@@ -152,112 +123,66 @@ function DrawerView () {
 
     )
   }
-  function App() {
+  SideModel = () => {
+    return (
+      <Drawer.Navigator>
+        <Drawer.Screen name="About" component={About} />
+        <Drawer.Screen name="Terms" component={Terms} />
+      </Drawer.Navigator>
 
+    )
+
+  }
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-      <Stack.Screen name="Wallet" component={DrawerView}
-          options={{ headerShown: false }} />
-      <Stack.Screen name="Supportrapido" component={Supportrapido}
-          options={{ headerShown: false }} />
-      <Stack.Screen name="Safety" component={Safety}
-          options={{ headerShown: false }} /> 
-      <Stack.Screen name="Ride" component={Ride}
-          options={{ headerShown: false }} />
-   <Stack.Screen name="Referrals" component={Referrals}
-          options={{ headerShown: false }} />       
-              <Stack.Screen name="Services" component={Services}
-          options={{ headerShown: false }} />
-     <Stack.Screen name="Account" component={Account}
-          options={{ headerShown: false }} />
-              <Stack.Screen name="Faqpayment" component={Faqpayment}
-          options={{ headerShown: false }} />
-     <Stack.Screen name="Powerpass" component={Powerpass}
-          options={{ headerShown: false }} />
-     
+      <Stack.Navigator >
       <Stack.Screen name="SettingScreen" component={SettingScreen}
           options={{ headerShown: false }} />
-             <Stack.Screen name="Geolocations" component={Geolocations}
+    
+   
+      <Stack.Screen name="Transaction" component={Transaction}
+          options={{ headerShown: false }} />
+            <Stack.Screen name="All" component={All}
+          options={{ headerShown: false }} />
+            <Stack.Screen name="Money" component={Money}
+          options={{ headerShown: false }} />
+            <Stack.Screen name="Coins" component={Coins}
+          options={{ headerShown: false }} />
+           
+    
+      <Stack.Screen name="Addmny" component={Addmny}
+          options={{ headerShown: false }} />
+   
+      <Stack.Screen name="Optnumber" component={Optnumber}
+          options={{ headerShown: false }} />
+      <Stack.Screen name="PhoneNumber" component={PhoneNumber}
+          options={{ headerShown: false }} />
+            <Stack.Screen name="VerifyCode" component={VerifyCode}
+          options={{ headerShown: false }} />
+            <Stack.Screen name="Authenticated" component={Authenticated}
           options={{ headerShown: false }} />
   
-      <Stack.Screen name="SearchScreen" component={SearchScreen}
+      <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}
           options={{ headerShown: false }} />
-              <Stack.Screen name="Help" component={Help}
-          options={{ headerShown: false }} />
-     
-      <Stack.Screen name="Preferences" component={Preferences}
+   
+              <Stack.Screen name="CreateScreen" component={CreateScreen}
           options={{ headerShown: false }} />
         
-        <Stack.Screen name="SwitchScreen" component={SwitchScreen}
+      <Stack.Screen name="Permissions" component={Permissions}
           options={{ headerShown: false }} />
-        <Stack.Screen name="Favorites" component={Favorites}
+      <Stack.Screen name="GeolocationScreen" component={GeolocationScreen}
           options={{ headerShown: false }} />
-        <Stack.Screen name="AboutRapido" component={AboutRapido}
+      
+      <Stack.Screen name="Profilescreenmap" component={Profilescreenmap}
           options={{ headerShown: false }} />
-        <Stack.Screen name="Payment" component={Payment}
+      <Stack.Screen name="Profilescreen" component={Profilescreen}
           options={{ headerShown: false }} />
-        <Stack.Screen name="Qrpay" component={Qrpay}
+    
+       
+   <Stack.Screen name="Geolocations" component={Geolocations}
           options={{ headerShown: false }} />
-        <Stack.Screen name="Gpay" component={Gpay}
-          options={{ headerShown: false }} />
-
-        <Stack.Screen name="Ticket" component={Ticket}
-          options={{ headerShown: false }} />
-
-        <Stack.Screen name="Support" component={Support}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="Cash" component={Cash}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="Passbook" component={Passbook}
-          options={{ headerShown: false }} />
-
-
-     
-
-
-        <Stack.Screen name="Transaction" component={Transaction}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="All" component={All}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="Money" component={Money}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="Coins" component={Coins}
-          options={{ headerShown: false }} />
-
-
-        <Stack.Screen name="Addmny" component={Addmny}
-          options={{ headerShown: false }} />
-
-        <Stack.Screen name="Optnumber" component={Optnumber}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="PhoneNumber" component={PhoneNumber}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="VerifyCode" component={VerifyCode}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="Authenticated" component={Authenticated}
-          options={{ headerShown: false }} />
-
-        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}
-          options={{ headerShown: false }} />
-
-        <Stack.Screen name="CreateScreen" component={CreateScreen}
-          options={{ headerShown: false }} />
-
-        <Stack.Screen name="Permissions" component={Permissions}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="GeolocationScreen" component={GeolocationScreen}
-          options={{ headerShown: false }} />
-
-        <Stack.Screen name="Profilescreenmap" component={Profilescreenmap}
-          options={{ headerShown: false }} />
-        <Stack.Screen name="Profilescreen" component={Profilescreen}
-          options={{ headerShown: false }} />
-
-
-   
-
+      
         <Stack.Screen name="LoginScreen" component={LoginScreen}
           options={{ headerShown: false }} />
         <Stack.Screen name="SignupScreen" component={SignupScreen}
@@ -266,22 +191,15 @@ function DrawerView () {
           options={{ headerShown: false }} />
         <Stack.Screen name="Loginscreen" component={Loginscreen}
           options={{ headerShown: false }} />
-
-
         <Stack.Screen name="Youtube" component={Youtube}
           options={{ headerShown: false }} />
-        <Stack.Screen name="Dashboard" component={HomeModule} />
+        <Stack.Screen name="Dashboard" component={Dashboard} />
         <Stack.Screen name="ExFlatlist" component={ExFlatlist}
           options={{ headerShown: false }} />
-
         <Stack.Screen name="ClsFlatlist" component={ClsFlatlist}
           options={{ headerShown: false }} />
-
-
         <Stack.Screen name="Stacknav" component={Stacknav}
           options={{ headerShown: false }} />
-
-
         <Stack.Screen name="Taskfunction" component={Taskfunction}
           options={{ headerShown: false }} />
         <Stack.Screen name="Taskif" component={Taskif}
@@ -310,7 +228,6 @@ function DrawerView () {
           options={{ headerShown: false }} />
         <Stack.Screen name=" Lakh" component={Lakh}
           options={{ headerShown: false }} />
-
         <Stack.Screen name="Twolakh" component={Twolakh}
           options={{ headerShown: false }} />
         <Stack.Screen name="Fivelakh" component={Fivelakh}
@@ -319,11 +236,8 @@ function DrawerView () {
           options={{ headerShown: false }} />
         <Stack.Screen name="Myemi" component={Myemi}
           options={{ headerShown: false }} />
-      </Stack.Navigator>
+      </Stack.Navigator >
     </NavigationContainer>
-  );
-
+  )
 }
-
-
 export default App;

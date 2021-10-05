@@ -74,7 +74,6 @@ import Account from './src/screens/Vinx/Account';
 import Referrals from './src/screens/Vinx/Referrals';
 import Faqpayment from './src/screens/Vinx/Faqpayment';
 import Powerpass from './src/screens/Vinx/Powerpass';
-import Scroll from './src/screens/Vinx/Scroll';
 
 
 import { createStackNavigator } from '@react-navigation/stack';
@@ -87,22 +86,8 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
-function DrawerView () {
-  return (
 
-    <Drawer.Navigator initialRouteName="About"
-    drawerContent={(props)=><Scroll {...props}/>}
-    >   
-         <Stack.Screen name="Settings" component={Settings} />
-      <Stack.Screen name="Search" component={Search} />
-    </Drawer.Navigator>
-
-  );
-
-}
-
-
-
+function App() {
 
   HomeModule = () => {
     return (
@@ -141,7 +126,7 @@ function DrawerView () {
 
         <Tab.Screen name="Home" component={Home} options={{ tabBarBadge: 4 }} />
 
-        <Tab.Screen name="Search" component={Search} />
+        <Tab.Screen name="Search" component={SideModel} />
         <Tab.Screen name="Heart" component={Heart} />
         <Tab.Screen name="Settings" component={Settings} />
 
@@ -152,18 +137,25 @@ function DrawerView () {
 
     )
   }
-  function App() {
+  SideModel = () => {
+    return (
 
+      <Drawer.Navigator>
+        <Drawer.Screen name="About" component={About} />
+        <Drawer.Screen name="Terms" component={Terms} />
+      </Drawer.Navigator>
+
+    )
+
+  }
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-      <Stack.Screen name="Wallet" component={DrawerView}
-          options={{ headerShown: false }} />
+      <Stack.Navigator >
       <Stack.Screen name="Supportrapido" component={Supportrapido}
           options={{ headerShown: false }} />
       <Stack.Screen name="Safety" component={Safety}
-          options={{ headerShown: false }} /> 
+          options={{ headerShown: false }} />
       <Stack.Screen name="Ride" component={Ride}
           options={{ headerShown: false }} />
    <Stack.Screen name="Referrals" component={Referrals}
@@ -176,7 +168,8 @@ function DrawerView () {
           options={{ headerShown: false }} />
      <Stack.Screen name="Powerpass" component={Powerpass}
           options={{ headerShown: false }} />
-     
+      <Stack.Screen name="Wallet" component={Wallet}
+          options={{ headerShown: false }} />
       <Stack.Screen name="SettingScreen" component={SettingScreen}
           options={{ headerShown: false }} />
              <Stack.Screen name="Geolocations" component={Geolocations}
@@ -319,9 +312,9 @@ function DrawerView () {
           options={{ headerShown: false }} />
         <Stack.Screen name="Myemi" component={Myemi}
           options={{ headerShown: false }} />
-      </Stack.Navigator>
+      </Stack.Navigator >
     </NavigationContainer>
-  );
+  )
 
 }
 
