@@ -53,7 +53,7 @@ const initialState = {
 	longitudeDelta: 0.0421
 };
 
-function GeolocationScreen() {
+function GeolocationScreen({ navigation }) {
    const [ currentPosition, setCurrentPosition ] = useState(initialState);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -68,7 +68,8 @@ function GeolocationScreen() {
 					longitude
 				});
 			},
-			
+			(error) => alert(error.message),
+			{ timeout: 20000, maximumAge: 1000 }
 		);
 	}, []);
 
@@ -77,7 +78,7 @@ function GeolocationScreen() {
 
 	
 	return (
-		<View style={{ flex: 1 }}>
+		<View style={{ flex: 1 }}> 
 			
 
 			{currentPosition.latitude ? (

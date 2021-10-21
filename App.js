@@ -83,18 +83,73 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
-const Drawer = createDrawerNavigator();
 
-function DrawerView () {
+
+
+HomeModule = () => {
+  return (
+    <Tab.Navigator
+      barStyle={{ backgroundColor: '#694fad' }}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = 'home'
+
+          } else if (route.name === 'Search') {
+            iconName = 'magnify'
+          }
+          else if (route.name === 'Heart') {
+            iconName = 'heart-outline'
+          } else if (route.name === 'Settings') {
+            iconName = 'cog'
+          } else if (route.name === 'ClsFlatlist') {
+            iconName = 'account-multiple'
+          }
+
+          // You can return any compo nent that you like here!
+          return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
+        },
+
+      })}
+      tabBarOptions={{
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+      }}
+    >
+
+      {/* <Tab.Screen name="Dashboard" component={Dashboard} /> */}
+
+      <Tab.Screen name="Home" component={Home} options={{ tabBarBadge: 4 }} />
+
+      <Tab.Screen name="Search" component={Search} />
+      <Tab.Screen name="Heart" component={Heart} />
+      <Tab.Screen name="Settings" component={Settings} />
+
+      <Tab.Screen name="ClsFlatlist" component={ClsFlatlist}
+        options={{ headerShown: false, title: "people" }} />
+
+    </Tab.Navigator>
+
+  )
+}
+
+
+SideView = () => {
   return (
 
-    <Drawer.Navigator initialRouteName="About"
-    drawerContent={(props)=><Scroll {...props}/>}
-    >   
-         <Stack.Screen name="Settings" component={Settings} />
-      <Stack.Screen name="Search" component={Search} />
+    <Drawer.Navigator >
+        <Drawer.Screen name="Geolocations" component={Geolocations}
+          options={{
+            headerShown: false,
+
+            headerLeft: () => (
+              <MaterialCommunityIcons name="menu" size={30} color="red" />
+            )
+          }}
+        />
+
     </Drawer.Navigator>
 
   );
@@ -103,93 +158,65 @@ function DrawerView () {
 
 
 
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
-  HomeModule = () => {
-    return (
-      <Tab.Navigator
-        barStyle={{ backgroundColor: '#694fad' }}
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+function App() {
 
-            if (route.name === 'Home') {
-              iconName = 'home'
 
-            } else if (route.name === 'Search') {
-              iconName = 'magnify'
-            }
-            else if (route.name === 'Heart') {
-              iconName = 'heart-outline'
-            } else if (route.name === 'Settings') {
-              iconName = 'cog'
-            } else if (route.name === 'ClsFlatlist') {
-              iconName = 'account-multiple'
-            }
 
-            // You can return any compo nent that you like here!
-            return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
-          },
-
-        })}
-        tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-        }}
-      >
-
-        {/* <Tab.Screen name="Dashboard" component={Dashboard} /> */}
-
-        <Tab.Screen name="Home" component={Home} options={{ tabBarBadge: 4 }} />
-
-        <Tab.Screen name="Search" component={Search} />
-        <Tab.Screen name="Heart" component={Heart} />
-        <Tab.Screen name="Settings" component={Settings} />
-
-        <Tab.Screen name="ClsFlatlist" component={ClsFlatlist}
-          options={{ headerShown: false, title: "people" }} />
-
-      </Tab.Navigator>
-
-    )
-  }
-  function App() {
 
 
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="Wallet" component={DrawerView}
+
+        {/*   
+      <Stack.Screen name="GeolocationScreen" component={GeolocationScreen}
+          options={{ headerShown: false }} /> */}
+        <Stack.Screen name="Geolocations" component={Geolocations}
+          options={{
+            headerShown: false,
+
+            headerLeft: () => (
+              <MaterialCommunityIcons name="menu" size={30} color="red" />
+            )
+          }}
+        />
+        {/* <Stack.Screen name="Wallet" component={Wallet}
           options={{ headerShown: false }} />
-      <Stack.Screen name="Supportrapido" component={Supportrapido}
+               */}
+
+        {/* <Stack.Screen name="Supportrapido" component={Supportrapido}
+          options={{ headerShown: false }} /> */}
+        <Stack.Screen name="Safety" component={Safety}
           options={{ headerShown: false }} />
-      <Stack.Screen name="Safety" component={Safety}
-          options={{ headerShown: false }} /> 
-      <Stack.Screen name="Ride" component={Ride}
+        <Stack.Screen name="Ride" component={Ride}
           options={{ headerShown: false }} />
-   <Stack.Screen name="Referrals" component={Referrals}
-          options={{ headerShown: false }} />       
-              <Stack.Screen name="Services" component={Services}
+        <Stack.Screen name="Referrals" component={Referrals}
           options={{ headerShown: false }} />
-     <Stack.Screen name="Account" component={Account}
+        <Stack.Screen name="Services" component={Services}
           options={{ headerShown: false }} />
-              <Stack.Screen name="Faqpayment" component={Faqpayment}
+        <Stack.Screen name="Account" component={Account}
           options={{ headerShown: false }} />
-     <Stack.Screen name="Powerpass" component={Powerpass}
+        <Stack.Screen name="Faqpayment" component={Faqpayment}
           options={{ headerShown: false }} />
-     
-      <Stack.Screen name="SettingScreen" component={SettingScreen}
+        <Stack.Screen name="Powerpass" component={Powerpass}
           options={{ headerShown: false }} />
-             <Stack.Screen name="Geolocations" component={Geolocations}
+
+        <Stack.Screen name="SettingScreen" component={SettingScreen}
           options={{ headerShown: false }} />
-  
-      <Stack.Screen name="SearchScreen" component={SearchScreen}
+
+
+        <Stack.Screen name="SearchScreen" component={SearchScreen}
           options={{ headerShown: false }} />
-              <Stack.Screen name="Help" component={Help}
+        <Stack.Screen name="Help" component={Help}
           options={{ headerShown: false }} />
-     
-      <Stack.Screen name="Preferences" component={Preferences}
+
+        <Stack.Screen name="Preferences" component={Preferences}
           options={{ headerShown: false }} />
-        
+
         <Stack.Screen name="SwitchScreen" component={SwitchScreen}
           options={{ headerShown: false }} />
         <Stack.Screen name="Favorites" component={Favorites}
@@ -214,7 +241,7 @@ function DrawerView () {
           options={{ headerShown: false }} />
 
 
-     
+
 
 
         <Stack.Screen name="Transaction" component={Transaction}
@@ -247,8 +274,7 @@ function DrawerView () {
 
         <Stack.Screen name="Permissions" component={Permissions}
           options={{ headerShown: false }} />
-        <Stack.Screen name="GeolocationScreen" component={GeolocationScreen}
-          options={{ headerShown: false }} />
+
 
         <Stack.Screen name="Profilescreenmap" component={Profilescreenmap}
           options={{ headerShown: false }} />
@@ -256,7 +282,7 @@ function DrawerView () {
           options={{ headerShown: false }} />
 
 
-   
+
 
         <Stack.Screen name="LoginScreen" component={LoginScreen}
           options={{ headerShown: false }} />
