@@ -12,7 +12,11 @@ const Support = ({navigation}) => {
             <View style={Styles.icon}>
 
                 <View>
+                <TouchableOpacity
+                           onPress={() => navigation.goBack()}
+                        >
                     <MaterialCommunityIcons name="arrow-left" size={30} />
+                    </TouchableOpacity>
                 </View>
                 <View style={Styles.icon2}>
                 <TouchableOpacity

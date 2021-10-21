@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text ,StyleSheet,Image} from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import Geolocation from '@react-native-community/geolocation';
 import { Marker } from 'react-native-maps';
 
@@ -28,17 +30,28 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'flex-end',
     alignItems: 'center',
+    
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+    
   },
+  maps: () => {
+    <MaterialCommunityIcons name="menu" size={30} color="red" />
+
+  }
  });
  
- export default () => (
-    <View style={styles.container}>
+function Geolocations ()  {
+  return(
+   <View style={styles.container}>
+
       <MapView
         provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        
         style={styles.map}
+        style={styles.maps}
+        
         initialRegion= {{
           latitude: 22.62938671242907,
           longitude: 88.4354486029795,
@@ -46,8 +59,11 @@ const styles = StyleSheet.create({
           longitudeDelta: 0.040142817690068,
         }}
     >
+
  
      
       </MapView>
     </View>
  );
+      }
+      export default Geolocations;

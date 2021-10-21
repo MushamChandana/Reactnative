@@ -1,17 +1,21 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet ,TouchableOpacity} from 'react-native'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 
-const Transaction = () => {
+const Transaction = ({navigation}) => {
     return (
         <View style={styles.container}>
 
             <View style={styles.silde}>
 
                 <View style={styles.icon}>
+                <TouchableOpacity
+                           onPress={() => navigation.goBack()}
+                        >
                     <MaterialCommunityIcons name="arrow-left" size={30} />
+                    </TouchableOpacity>
                     <Text style={{ fontSize: 18, marginHorizontal: 20 }}> Wallet Transactions</Text>
 
                 </View>
